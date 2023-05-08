@@ -11,7 +11,7 @@ import java.util.List;
 public class DriverValidatorListener extends AbstractWebDriverEventListener {
 
     List <DriverEventListenerValidation> validators;
-    boolean isValidating = false;
+    boolean isValidating = false; 
 
     public DriverValidatorListener() {
         validators = Arrays.asList( new AdValidator() );

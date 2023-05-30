@@ -24,14 +24,5 @@ public class Basic {
         DriverManager.dismissCurrentDriver();
     }
 
-//    @After
-//    public void tearDown(Scenario scenario){
-//        if (scenario.isFailed()){
-//            scenario.write("Scenario fallando, referirse a la imagen adjunta");
-//            final byte[] screenshot = ((TakesScreenshot) driver)
-//                    .getScreenshotAs(OutputType.BYTES);
-//            scenario.embed(screenshot,"image/png");
-//        }
- //   }
 }
 

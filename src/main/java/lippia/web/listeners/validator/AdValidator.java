@@ -12,6 +12,7 @@ final public class AdValidator implements DriverEventListenerValidation {
     private static String CLOSE_AD_BUTTON = "xpath://*[@id='dismiss-button']";
     public static final String AD_IFRAME1 = "xpath:/html/ins/*/*[contains(@id, 'aswift_') and not(contains(@id, 'host'))]";
     public static final String AD_IFRAME2 = "xpath://*[@id='ad_iframe']";
+    public static final String AD_IFRAME3 = "css:div.grippy-host";
 
     @Override
     public void validate( Throwable throwable, WebDriver driver ) {

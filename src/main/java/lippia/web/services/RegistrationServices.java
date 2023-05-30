@@ -1,28 +1,45 @@
 package lippia.web.services;
 
-import com.crowdar.core.PropertyManager;
 import com.crowdar.core.actions.ActionManager;
-import lippia.web.constants.RegistrationConstants;
-
-import static com.crowdar.core.actions.WebActionManager.navigateTo;
+import com.crowdar.core.actions.WebActionManager;
+import org.testng.Assert;
+import static lippia.web.constants.RegistrationConstants.*;
 
 public class RegistrationServices extends ActionManager {
 
 
-    public static void menu(){
-        waitVisibility(RegistrationConstants.CLICK_MENU).click();
-    }
-
     public static void enterUserCriteria(String user) {
-        setInput(RegistrationConstants.INPUT_USER_XPATH, user);
+        setInput(INPUT_USER, user);
     }
 
     public static void enterPassCriteria(String pasword) {
-        setInput(RegistrationConstants.INPUT_PASSWORD_XPATH, pasword);
+        setInput(INPUT_PASSWORD, pasword);
     }
 
     public static void clickRegistrar() {
-        click(RegistrationConstants.CLIKC_LOGIN_BUTTON);
+        click(CLIKC_REGISTER_BUTTON);
+    }
+
+    public static void verifyResults() {
+        Assert.assertTrue(WebActionManager.isPresent(HELLO_TEXT, "El elemento no está presente"));
+    }
+
+    private static String getTextError() {
+        return getElement(ERROR_TEXT_VALIDEMAIL).getText();
+
+    }
+
+    public static void verifyMesageError(String text) {
+        String[] partes = getTextError().split(": ");
+        System.out.println(partes[1]);
+        Assert.assertEquals(partes[1], text);
+
+    }
+
+    public static void contraseniaRequerida(String text) {
+        String locator = getElement(String.format(ERROR_TEXT_PASSWORD, text)).getText();
+        String[] partes = locator.split(": ");
+        Assert.assertEquals(partes[1], text);
     }
 
 }

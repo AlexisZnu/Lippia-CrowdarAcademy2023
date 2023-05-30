@@ -5,7 +5,7 @@ import com.crowdar.core.actions.ActionManager;
 import com.crowdar.core.actions.WebActionManager;
 
 import static com.crowdar.core.actions.WebActionManager.navigateTo;
-import static lippia.web.constants.SuperiorNavigationBarConstants.*;
+import static lippia.web.constants.ShopConstants.*;
 
 
 public class SuperiorBarNavigationBarService extends ActionManager {

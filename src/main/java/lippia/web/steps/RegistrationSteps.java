@@ -30,7 +30,7 @@ public class RegistrationSteps extends PageSteps {
 
     }
 
-    //2. Registration with invalid Email-id
+   
     @And("^ingresa un email inválida en el campo Email (.+) e ingresa una contrasenia en el campo (.+)$")
     public void ingresaUnaContrasenaEnElCampo(String email, String pass ) {
         RegistrationServices.enterUserCriteria(email);
@@ -45,7 +45,7 @@ public class RegistrationSteps extends PageSteps {
     }
 
 
-    //##3. Registration with empty Email-id
+   
     @And("deja vacía en el campo de texto del email e ingresa una contraseña en el campo (.+)")
     public void dejaVaciaEnElCampoDeTextoDelEmailEIngresaUnaContrasenaEnElCampo(String pass) {
 

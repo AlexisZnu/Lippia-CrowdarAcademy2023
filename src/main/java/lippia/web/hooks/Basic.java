@@ -9,7 +9,6 @@ import lippia.web.listeners.DriverValidatorListener;
 
 public class Basic {
 
-    WebActionManager driver = new WebActionManager();
     @Before(order = 0)
 
     public void beforeScenario(Scenario scenario) {

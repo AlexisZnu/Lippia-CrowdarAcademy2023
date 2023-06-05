@@ -3,13 +3,9 @@ package lippia.web.services;
 
 import com.crowdar.core.actions.ActionManager;
 import com.crowdar.core.actions.WebActionManager;
-import lippia.web.constants.HomeConstants;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import static lippia.web.constants.HomeConstants.*;
-import static lippia.web.constants.MyAccountConstants.*;
-import static lippia.web.constants.MyAccountConstants.BUTTON_SINGOUT;
-
 import java.awt.*;
 import java.util.HashMap;
 import java.util.List;

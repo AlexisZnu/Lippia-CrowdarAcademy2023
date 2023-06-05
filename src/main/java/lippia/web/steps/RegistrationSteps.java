@@ -9,16 +9,12 @@ public class RegistrationSteps extends PageSteps {
     @Given("que el usuario se encuentra en la página de inicio de sesión")
     public void home() {
         SuperiorBarNavigationBarService.navegarWeb();
-
     }
-
-
     @And("^ingresa su email valido en el campo (.+) y una contrasenia valida en el campo de (.+)$")
     public void ingresaUnaDireccionDeCorreoElectronicoValidaYUnaContrasenaEnLosCuadrosDeTextoDeDireccionDeCorreoElectronicoYContrasena(String user, String pass) {
         RegistrationServices.enterUserCriteria(user);
         RegistrationServices.enterPassCriteria(pass);
     }
-
     @And("hace click en el botón Registrarse")
     public void haceClickEnElBotonRegistrarse(){
         RegistrationServices.clickRegistrar();
@@ -30,7 +26,7 @@ public class RegistrationSteps extends PageSteps {
 
     }
 
-    //2. Registration with invalid Email-id
+
     @And("^ingresa un email inválida en el campo Email (.+) e ingresa una contrasenia en el campo (.+)$")
     public void ingresaUnaContrasenaEnElCampo(String email, String pass ) {
         RegistrationServices.enterUserCriteria(email);
@@ -45,7 +41,6 @@ public class RegistrationSteps extends PageSteps {
     }
 
 
-    //##3. Registration with empty Email-id
     @And("deja vacía en el campo de texto del email e ingresa una contraseña en el campo (.+)")
     public void dejaVaciaEnElCampoDeTextoDelEmailEIngresaUnaContrasenaEnElCampo(String pass) {
 

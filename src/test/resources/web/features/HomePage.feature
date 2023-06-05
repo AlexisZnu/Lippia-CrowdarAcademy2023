@@ -19,14 +19,14 @@ Feature: Home Page
 @Description
   Scenario: Verificar la descripción del libro en la página de detalle
     When hace click en la imagen del Arraival
-    When hace click en la pestaña Description
+    When hace click en la pestaña de Descripcion
     Then se muestra la descripción correspondiente al libro seleccionado y debe estar relacionada con el libro
 
 
 @Reviews
   Scenario: : Navegación a la página de detalles del producto desde la imagen de llegada y verificación de las reseñas del producto
     When  hace click en la imagen del Arraival
-    When hago click en la pestaña de Reviews
+    When hago click en la pestaña de Resenias
     Then debo ver una lista de reseñas para ese libro y cada reseña debe incluir un título, una calificación y un comentario
 
 

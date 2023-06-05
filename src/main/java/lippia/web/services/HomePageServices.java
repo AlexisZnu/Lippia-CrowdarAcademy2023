@@ -7,21 +7,18 @@ import lippia.web.constants.HomeConstants;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import static lippia.web.constants.HomeConstants.*;
+import static lippia.web.constants.MyAccountConstants.*;
+import static lippia.web.constants.MyAccountConstants.BUTTON_SINGOUT;
+
 import java.awt.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 public class HomePageServices extends ActionManager {
 
-    public static void clickShop(){
-        WebActionManager.waitVisibility(BUTTON_SHOP).click();
-    }
-
-    public static void clickHome(){
-        WebActionManager.waitVisibility(BUTTON_HOME).click();
-    }
-
-    public static void clickDescription(){
+    public static void clickDescription() {
         waitVisibility(REVIEWS_BUTTON);
         try {
             Robot robot = new Robot();
@@ -34,7 +31,7 @@ public class HomePageServices extends ActionManager {
 
     }
 
-    public static void clickReview(){
+    public static void clickReview() {
         waitVisibility(REVIEWS_BUTTON);
         try {
             Robot robot = new Robot();
@@ -45,9 +42,9 @@ public class HomePageServices extends ActionManager {
             throw new RuntimeException(e);
         }
         WebActionManager.click(REVIEWS_BUTTON, false);
-        }
+    }
 
-    public static void sliders(){
+    public static void sliders() {
         try {
             List<WebElement> locators = WebActionManager.getElements(SLIDERS);
             for (WebElement locator : locators) {
@@ -56,42 +53,46 @@ public class HomePageServices extends ActionManager {
                 i++;
                 System.out.println(i);
             }
-        }catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             System.out.println("Los sliders no pudieron ser encontrados: ");
             e.printStackTrace();
         }
     }
 
-
-    public static void scrollAndClickElement(){
-        WebActionManager.click(HomeConstants.TERCER_ARRAIVALS,false);
-    }
-
-    public static void validacionDeElementos(){
+    public static void validacionDeElementos() {
         try {
-            List<WebElement> elementos = WebActionManager.getElements(PRIMER_ARRAIVALS,SEGUNDO_ARRAIVALS,TERCER_ARRAIVALS);
+            List<WebElement> elementos = WebActionManager.getElements(PRIMER_ARRAIVALS, SEGUNDO_ARRAIVALS, TERCER_ARRAIVALS);
             for (WebElement elemento : elementos) {
                 Assert.assertTrue(elemento.isEnabled());
                 int i = 0;
                 i++;
                 System.out.println(i);
             }
-        }catch (NoSuchElementException e){
-             System.out.println("Los arraivals no pudieron ser encontrados: ");
-                e.printStackTrace();
-            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Los arraivals no pudieron ser encontrados: ");
+            e.printStackTrace();
         }
+    }
 
     public static void validarDescription() {
-            Assert.assertTrue(WebActionManager.isEnabled(DESCRIPTION_TEXT,
-                    "El boton no pudo ser encontrado: "));
+        Assert.assertTrue(WebActionManager.isEnabled(DESCRIPTION_TEXT,
+                "El boton no pudo ser encontrado: "));
 
     }
 
     public static void validarReviews() {
-            Assert.assertTrue(WebActionManager.isPresent(REVIEWS_TEXT,
-                    "El boton no pudo ser encontrado: "));
+        Assert.assertTrue(WebActionManager.isPresent(REVIEWS_TEXT,
+                "El boton no pudo ser encontrado: "));
 
     }
 
+    public static void mapsHome(String button) {
+        Map<String, String> buttons = new HashMap<>();
+        buttons.put("Shop", BUTTON_SHOP);
+        buttons.put("Home", BUTTON_HOME);
+        buttons.put("Arraival", TERCER_ARRAIVALS);
+
+        WebActionManager.click(buttons.get(button), false);
+
+    }
 }

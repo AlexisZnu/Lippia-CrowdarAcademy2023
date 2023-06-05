@@ -6,9 +6,9 @@ Feature: Shop
     And hace click en el menu Shop
 
 
-@MenorAMayor
+@Popularity
   Scenario: Ordenar productos por elemento de menor a mayor
-    And selecciono Ordenar por elemento de menor a mayor en el menú desplegable de clasificación predeterminada
+    And selecciono Ordenar por popularidad en el menú desplegable de clasificación predeterminada
     Then puede ver solo los productos ordenador de precio menor a mayor según el precio
 
 

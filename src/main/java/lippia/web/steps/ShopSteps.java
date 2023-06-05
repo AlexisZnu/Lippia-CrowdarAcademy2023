@@ -24,7 +24,7 @@ public class ShopSteps extends PageSteps {
         ShopService.verifyPage();
     }
 
-    @And("selecciono Ordenar por elemento de menor a mayor en el menú desplegable de clasificación predeterminada")
+    @And("^selecciono Ordenar por popularidad en el menú desplegable de clasificación predeterminada$")
     public void seleccionoOrdenarPorElementoDeMenorAMayorEnElMenuDesplegableDeClasificacionPredeterminada() {
         ShopService.selectDropdownByValue1();
 
@@ -35,7 +35,7 @@ public class ShopSteps extends PageSteps {
         ShopService.verifyPriceLow();
     }
 
-    @And("selecciona Ordenar por elemento de mayor a menor en el menú desplegable de clasificación predeterminada")
+    @And("^selecciona Ordenar por elemento de mayor a menor en el menú desplegable de clasificación predeterminada$")
     public void seleccionaEnElMenuDesplegableDeClasificacionPredeterminada() {
         ShopService.selectDropdownByValue();
     }

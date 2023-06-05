@@ -5,14 +5,14 @@ import lippia.web.services.HomePageServices;
 
 public class HomePageSteps {
     
-    @And("hace click en el menu Shop")
-    public void shop(){
-    HomePageServices.clickShop();
+    @And("^hace click en el menu (.*)$")
+    public void shop(String shop){
+    HomePageServices.mapsHome(shop);
   }
 
-    @And("hace click en el botón del menú Home")
-    public void haceClickEnElBotonDelMenuHome() {
-    HomePageServices.clickHome();
+    @And("^hace click en el botón del menú (.*)$")
+    public void haceClickEnElBotonDelMenuHome(String home) {
+    HomePageServices.mapsHome(home);
   }
 
     @Then("se verifica ver solo tres controles deslizantes en la página de inicio")
@@ -25,12 +25,12 @@ public class HomePageSteps {
       HomePageServices.validacionDeElementos();
   }
 
-    @When("hace click en la imagen del Arraival")
-    public void haceClickEnLaImagenDelArraival() {
-      HomePageServices.scrollAndClickElement();
+    @When("^hace click en la imagen del (.*)$")
+    public void haceClickEnLaImagenDelArraival(String arrai) {
+      HomePageServices.mapsHome(arrai);
   }
 
-    @When("hace click en la pestaña Description")
+    @When("hace click en la pestaña de Descripcion")
     public void haceClikcEnLaPestanaDescription(){
     HomePageServices.clickDescription();
   }
@@ -40,7 +40,7 @@ public class HomePageSteps {
         HomePageServices.validarDescription();
   }
 
-    @When("hago click en la pestaña de Reviews")
+    @When("hago click en la pestaña de Resenias")
     public void hagoClickEnLaPestanaDeReviews() {
       HomePageServices.clickReview();
   }

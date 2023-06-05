@@ -32,11 +32,11 @@ public class ShopService extends ActionManager{
 
     public static void selectDropdownByValue1() {
         List<WebElement> drop = WebActionManager.getElements(DROPDOWN_PRICE_VALUE);
-        for (WebElement drops : drop) {
+        for (WebElement drops1 : drop) {
             int i = 0;
             i++;
-            Select select = new Select(drops);
-            select.selectByValue("price");
+            Select select = new Select(drops1);
+            select.selectByValue("popularity");
             System.out.println(i);
         }
     }
@@ -48,7 +48,7 @@ public class ShopService extends ActionManager{
         }
 
         public static void verifyPriceLow () {
-            Assert.assertTrue(ActionManager.waitPresence(DROPDOWN_OPTIONS_PRICE_LOW).isDisplayed()
+            Assert.assertTrue(ActionManager.waitPresence(DROPDOWN_OPTIONS_PRICE_POPULARITY).isDisplayed()
                     , "El elemento no pudo ser encontrado: ");
         }
 
@@ -62,7 +62,7 @@ public class ShopService extends ActionManager{
             } catch (AWTException e) {
                 throw new RuntimeException(e);
             }
-            WebActionManager.click(READMORE_PRODUCT_BUTTON, false);
+            WebActionManager.waitVisibility(READMORE_PRODUCT_BUTTON).click();
         }
 
 

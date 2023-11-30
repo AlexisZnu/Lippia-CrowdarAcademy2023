@@ -7,7 +7,10 @@ import static lippia.web.constants.RegistrationConstants.*;
 
 public class RegistrationServices extends ActionManager {
 
+    private static String getTextError() {
+        return getElement(ERROR_TEXT_VALIDEMAIL).getText();
 
+    }
     public static void enterUserCriteria(String user) {
         setInput(INPUT_USER, user);
     }
@@ -22,11 +25,6 @@ public class RegistrationServices extends ActionManager {
 
     public static void verifyResults() {
         Assert.assertTrue(WebActionManager.isPresent(HELLO_TEXT, "El elemento no está presente"));
-    }
-
-    private static String getTextError() {
-        return getElement(ERROR_TEXT_VALIDEMAIL).getText();
-
     }
 
     public static void verifyMesageError(String text) {

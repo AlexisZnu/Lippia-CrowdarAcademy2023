@@ -1,8 +1,11 @@
 package lippia.web.services;
 
+import com.crowdar.core.PropertyManager;
 import com.crowdar.core.actions.ActionManager;
 import com.crowdar.core.actions.WebActionManager;
 import org.testng.Assert;
+
+import static com.crowdar.core.actions.WebActionManager.navigateTo;
 import static lippia.web.constants.LoginConstants.*;
 import static lippia.web.constants.LoginConstants.CAMBIOMAYUSCULA_ERROR;
 import static lippia.web.constants.MyAccountConstants.*;
@@ -38,6 +41,9 @@ public class LoginServices extends ActionManager {
     public static void cambioAMayuscula(String text) {
         String locatorio = getElement(CAMBIOMAYUSCULA_ERROR).getText();
         Assert.assertEquals(locatorio, text,"El elemento no está siendo encontrado");
+    }
+    public static void navegarWeb(){
+        navigateTo(PropertyManager.getProperty("web.base.url"));
     }
 
 

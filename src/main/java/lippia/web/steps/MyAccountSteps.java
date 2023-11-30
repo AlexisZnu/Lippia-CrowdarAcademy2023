@@ -3,8 +3,8 @@ package lippia.web.steps;
 import com.crowdar.core.actions.WebActionManager;
 import io.cucumber.java.en.*;
 import lippia.web.constants.MyAccountConstants;
+import lippia.web.services.LoginServices;
 import lippia.web.services.MyAccountServices;
-import lippia.web.services.SuperiorBarNavigationBarService;
 import org.testng.Assert;
 
 import static lippia.web.constants.MyAccountConstants.TEXT_DETAIL_BILLING;
@@ -13,7 +13,7 @@ import static lippia.web.constants.MyAccountConstants.TEXT_DETAIL_BILLING;
 public class MyAccountSteps {
     @Given("que estoy en la página de inicio del sitio web")
     public void Home(){
-        SuperiorBarNavigationBarService.navegarWeb();
+        LoginServices.navegarWeb();
     }
 
     @When("^hace click en el menú (.*)$")
@@ -25,7 +25,6 @@ public class MyAccountSteps {
     public void escribeSuUsuarioValidoYContrasenaValidaEnElCuadroDeTexto(String user, String pass) {
         MyAccountServices.enterUser(user);
         MyAccountServices.enterPassword(pass);
-
     }
 
     @And("^hace click en el botón de inicio (.+)$")
@@ -40,10 +39,9 @@ public class MyAccountSteps {
 
     @Then("se redirije correctamente al Dashboard con toda la información necesaria")
     public void seRedirijeCorrectamenteAlDashboardConTodaLaInformacionNecesaria() {
-        Assert.assertTrue(WebActionManager.isPresent(MyAccountConstants.BUTTON_SINGOUT,
-                "El elemento no se encuentra presente: "));
+        Assert.assertTrue(WebActionManager.isPresent(MyAccountConstants.BUTTON_SINGOUT),
+                "El elemento no se encuentra presente: ");
     }
-
 
     @And("^efectua un click en el enlace de (.+)$")
     public void clickEnPedidos(String pedidos) {
@@ -52,8 +50,7 @@ public class MyAccountSteps {
 
     @Then("ve sus pedidos")
     public void veSusPedidos() {
-        Assert.assertTrue(WebActionManager.isVisible(MyAccountConstants.LISTA_PEDIDOS,"El elemento no se encuentra presente: "));
-
+        Assert.assertTrue(WebActionManager.isVisible(MyAccountConstants.LISTA_PEDIDOS));
     }
 
     @And("^clickea en el botón de (.+)$")
@@ -69,10 +66,8 @@ public class MyAccountSteps {
 
     @Then("ve el número del pedido, la fecha del pedido y el estado del pedido (.+)")
     public void veElNumeroDelPedidoLaFechaDelPedidoYElEstadoDelPedido(String details) {
-        Assert.assertTrue(WebActionManager.isPresent(MyAccountConstants.TEXT_DETAILS_PRODUCTS,"El elemento no se encuentra presente: "), details);
-
+        Assert.assertTrue(WebActionManager.isPresent(MyAccountConstants.TEXT_DETAILS_PRODUCTS,details),"El elemento no se encuentra presente: ");
     }
-
 
     @Then("ve la dirección de facturación y envío en Mi Cuenta (.+)")
     public void veLaDireccionDeFacturacionYEnvioEnMiCuenta(String billing) {

@@ -13,7 +13,7 @@ public class LoginSteps {
 
     @Given("que el usuario está en la página de inicio practice.automationtesting.in")
     public void HomePractice(){
-        SuperiorBarNavigationBarService.navegarWeb();
+        LoginServices.navegarWeb();
     }
 
     @And("ingresa un usuario (.+) y contrasenia (.+) invalido  en el campo de texto de usuario y contrasenia")
@@ -21,13 +21,10 @@ public class LoginSteps {
         LoginServices.usuario(user);
         LoginServices.contrasenia(pass);
     }
-
     @Then("se muestra un mensaje (.+) de error apropiado y se solicita al usuario que vuelva a ingresar sus credenciales")
     public void seMuestraUnMensajeDeErrorApropiadoYSeSolicitaAlUsuarioQueVuelvaAIngresarSusCredenciales(String mesage) {
         LoginServices.verifyErrorAddress(mesage);
-
     }
-
 
     @And("ingresa un usuario valido (.+) en el campo de nombre de usuario y deja vacio el cuadro de texto de contrasenia")
     public void ingresaUnUsuarioValidoEnElCampoDeNombreDeUsuario(String user) {
@@ -37,10 +34,7 @@ public class LoginSteps {
     @Then("se muestra un mensaje (.+) de error y se solicita al usuario que vuelva a ingresar sus credenciales")
     public void seMuestraUnMensajeDeErrorYSeSolicitaAlUsuarioQueVuelvaAIngresarSusCredenciales(String errorPass) {
         LoginServices.passwordIsRequired(errorPass);
-
     }
-
-
     @When("deja vacio el cuadro de texto de nombre de usuario")
     public void dejaVacioElCuadroDeTextoDeNombreDeUsuario() {
     }
@@ -49,15 +43,16 @@ public class LoginSteps {
     public void ingresaUnaContrasenaValidaEnElCuadroDeTextoDeContrasena(String pass) {
         LoginServices.contrasenia(pass);
     }
+
     @Then("se muestra un mensaje  de error (.+) y se solicita al usuario que vuelva a ingresar sus credenciales")
     public void muestraUnMensajeDeErrorYSeSolicitaAlUsuarioQueVuelvaAIngresarSusCredenciales(String user) {
         LoginServices.userIsRequired(user);
     }
 
-
     @When("deja vacio el cuadro de texto de nombre de usuario y de contrasenia")
     public void dejaVacioElCuadroDeTextoDeNombreDeUsuarioYDeContrasena() {
     }
+
     @When("el usuario ingresa con contrasenia valida en el campo de contrasenia (.+)")
     public void elUsuarioIngresaConContraseniaValidaEnElCampoDeContrasenia(String pass) {
         LoginServices.contrasenia(pass);
@@ -82,7 +77,6 @@ public class LoginSteps {
     public void seMuestraUnMensajeQueDebeSolicitarAlUsuarioQueVuelvaAIngresarSusCredenciales(String error) {
         LoginServices.cambioAMayuscula(error);
     }
-
 
     @Then("no debe estar conectado a su cuenta y se debe mostrar una página web general")
     public void noDebeEstarConectadoASuCuentaYSeDebeMostrarUnaPaginaWebGeneral() {
